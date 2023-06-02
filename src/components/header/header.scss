@@ -1,0 +1,136 @@
+@import 'components.scss';
+
+
+header {
+    width: 100%;
+    position: relative;
+    background-color: var(--color-1);
+    background-image: url('../../image/pattern/leaf-header-1.png');
+    background-repeat: no-repeat;
+    background-position: top right;
+    nav {
+        width: 100%;
+        position: relative;
+
+        
+        .inner {
+            width: 100%;
+            padding: 15px 0;
+        }
+
+        &.top-nav {
+            .inner {
+                @include row-justify-end;
+            }
+
+            
+        }
+        &.middle-nav{
+            margin-bottom: 15px;
+            .inner{
+                width: 100%;
+                @include column-center;
+                .middle-bottom{
+                    width: 100%;
+                    @include row-between;
+                    margin-top: 20px;
+                }
+            }
+        }
+        &.bottom-nav{
+            @include column-center;
+            
+            .categories{
+                width: 100%;
+                position: relative;
+            }
+        }
+        &.fixed-top{
+            justify-content: flex-end;
+            animation: fixed-nav 0.5s ease forwards;
+            background-color: var(--color-1);
+            .all-category-button{
+                min-height: 75px !important;
+            }
+            .fixnav-items{
+                padding-left: 30px;
+                width: 100%;
+                @include row-between;
+                max-width: 600px;
+                .search-form{
+                    max-width: 400px !important;
+                }
+            }
+            .nav-links{
+                display: none !important;
+            }
+        }
+    }
+}
+
+@keyframes fixed-nav{
+    0%{
+        transform: translateY(-500px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media only screen and (min-width: 1200px){
+    header{
+        nav{
+            &.middle-nav{
+                .inner{
+                    flex-direction: row;
+                    justify-content: space-between;
+                    .middle-bottom{
+                        margin-top: 0;
+                        width: auto;
+                    }
+                }
+            }
+            &.bottom-nav{
+                flex-direction: row;
+                flex-direction: row-reverse;
+                .categories{
+                    max-width: 550px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1400px){
+    header{
+        nav{
+            &.fixed-top{
+                .fixnav-items{
+                    max-width: 800px;
+                    .search-form{
+                        max-width: 600px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1600px){
+    header{
+        nav{
+            &.bottom-nav{
+                .categories{
+                    max-width: 700px;
+                }
+            }
+            &.fixed-top{
+                .fixnav-items{
+                    max-width: 900px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+
+    --color-1: #fc8410;
+    --color-2: #106853;
+
+    --bg-color-1: #f8f8f8;
+    --bg-color-2: #f2f2f2;
+
+    // black white level
+    --black-1: rgba(0,0,0,0.1);
+    --black-2: rgba(0,0,0,0.2);
+    --black-3: rgba(0,0,0,0.3);
+    --black-4: rgba(0,0,0,0.4);
+    --black-5: rgba(0,0,0,0.5);
+    --black-6: rgba(0,0,0,0.6);
+    --black-7: rgba(0,0,0,0.7);
+    --black-8: rgba(0,0,0,0.8);
+    --black-9: rgba(0,0,0,0.9);
+    --white-1: rgba(255,255,255,0.1);
+    --white-2: rgba(255,255,255,0.2);
+    --white-3: rgba(255,255,255,0.3);
+    --white-4: rgba(255,255,255,0.4);
+    --white-5: rgba(255,255,255,0.5);
+    --white-6: rgba(255,255,255,0.6);
+    --white-7: rgba(255,255,255,0.7);
+    --white-8: rgba(255,255,255,0.8);
+    --white-9: rgba(255,255,255,0.9);
+
+    --font-family: 'Montserrat', sans-serif;
+
+    --scrollbar-width: 7px;
+    --scrollbar-height: 7px;
+    --scrollbar-radius: 10px;
+    --scrollbar-thumb-color: var(--color-1);
+    --scrollbar-track-color: #fff;
+
+    --selection-bg: #3c3c3c;
+    --selection-color: #fff;
+
+    --section-padding: 40px 0;
+    --section-mb: 40px;
+
+}

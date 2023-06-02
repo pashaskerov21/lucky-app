@@ -1,0 +1,29 @@
+section.terms {
+    .col-12{
+        &:last-child{
+            align-items: flex-start;
+        }
+    }
+    .content {
+        font-size: 18px;
+
+        ul,
+        p {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+    }
+
+    .terms-logo {
+        width: 100%;
+        max-width: 500px;
+
+        img {
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+section.contact{
+    .row{
+        justify-content: center;
+    }
+    .contact-item{
+        width: 100%;
+        min-height: 200px;
+        padding: 20px;
+        @include column-center;
+        text-align: center;
+        box-shadow: 0 0 10px var(--black-2);
+        font-size: 18px;
+        i{
+            font-size: 50px;
+            margin-bottom: 25px;
+            color: var(--color-2);
+        }
+        &:hover{
+            box-shadow: 0 0 10px var(--color-2);
+        }
+    }
+    .map{
+        width: 100%;
+        max-width: 800px;
+        min-height: 300px;
+        height: 100%;
+        iframe{
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+        }
+    }
+}

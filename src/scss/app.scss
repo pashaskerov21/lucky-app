@@ -1,0 +1,21 @@
+@import 'mixin.scss';
+@import 'root.scss';
+@import 'basic.scss';
+@import 'title.scss';
+@import 'form.scss';
+
+@import '../components/header/header.scss';
+@import '../components/footer/footer.scss';
+@import '../components/banner/banner.scss';
+@import '../components/category/subcategory.scss';
+
+@import '../components/product/products.scss';
+@import '../components/product/filter/filter.scss';
+
+
+@import '../components/basket/basket.scss';
+
+@import '../components/about/about.scss';
+@import '../components/terms/terms.scss';
+@import '../components/contact/contact.scss';
+@import '../components/account/account.scss';

@@ -1,0 +1,57 @@
+.section-title{
+    margin-bottom: 55px;
+    position: relative;
+    text-transform: capitalize;
+    text-align: center;
+    &::after{
+        content: '';
+        position: absolute;
+        bottom: -18px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 35px;
+        height: 4px;
+        border-radius: 10px;
+        background-color: var(--color-2);
+    }
+}
+
+.root-links{
+    width: 100%;
+    padding: 15px 0;
+    @include row-center;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-bottom: 30px;
+    a{
+        color: #000;
+        text-transform: capitalize;
+    }
+    span{
+        padding: 0 5px;
+    }
+}
+
+@media only screen and (min-width: 992px){
+    .root-links{
+        justify-content: flex-start;
+        text-align: start;
+    }
+}
+
+.page-title{
+    width: 100%;
+    @include column-center;
+    background-image: url('../image/pattern/leaf-title.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 20px 0;
+    margin-bottom: 50px;
+    .section-title{
+        margin-bottom: 25px;
+    }
+    .root-links{
+        justify-content: center;
+        margin-bottom: 0;
+    }
+}
