@@ -4,8 +4,8 @@ import { Link, useParams } from 'react-router-dom'
 import { productCategories } from '../../data/ProductData';
 import SimiliarProducts from './slider/SimiliarProducts';
 import basketIcon from '../../image/icon/cart.svg'
-import { useDispatch} from 'react-redux';
-import { addToBasket} from '../../redux/actions/BasketActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToBasket } from '../../redux/actions/BasketActions';
 import { toast } from 'react-toastify';
 
 function ProductDetail() {
@@ -21,33 +21,35 @@ function ProductDetail() {
     const [amount, setAmount] = useState(1);
 
     const [isAlreadyInBasket, setIsAlreadyInBasket] = useState(false);
-    
+
 
     const handleAddToBasket = () => {
-        const productWithAmount = { ...product, amount };
-
         if (!isAlreadyInBasket) {
-            dispatch(addToBasket(productWithAmount));
-            toast.success('Məhsul səbətə əlavə olundu');
-            setIsAlreadyInBasket(true);
+            dispatch(addToBasket(product));
+            toast.success('Ürün sepete eklendi!');
+            setIsAlreadyInBasket(true)
         }
+
     };
 
-    const handleAmountButton = (value) => {
-        if (amount === 1 && value === -1) {
-            setAmount(1)
-        } else {
-            setAmount(amount + value)
-            setIsAlreadyInBasket(false);
-        }
-    }  
+
+
+    // const decAmount = () => {
+    //     if (amount > 1) {
+    //         setAmount(amount - 1)
+    //     }
+    // }
+    // const incAmount = () => {
+    //     setAmount(amount + 1)
+    // }
+
 
     return (
         <Layout>
             <section className='product-detail'>
                 <div className="container">
                     <div className="root-links">
-                        <Link to='/'>Ana səhifə</Link> 
+                        <Link to='/'>Ana səhifə</Link>
                         <span>/</span>
                         <Link to={`/products/${encodeURIComponent(categoryName)}`}>{categoryName}</Link>
                         <span>/</span>
@@ -71,11 +73,11 @@ function ProductDetail() {
                                     </div>
                                 </div>
                                 <div className="add-basket">
-                                    <div className="amount">
-                                        <button onClick={() => handleAmountButton(-1)}>-</button>
+                                    {/* <div className="amount">
+                                        <button onClick={() => decAmount()}>-</button>
                                         <span className='value'>{amount}</span>
-                                        <button onClick={() => handleAmountButton(1)}>+</button>
-                                    </div>
+                                        <button onClick={() => incAmount()}>+</button>
+                                    </div> */}
                                     <button onClick={handleAddToBasket} className='basket-button'>Səbətə at <img src={basketIcon} alt="basket-icon" /></button>
                                 </div>
                             </div>

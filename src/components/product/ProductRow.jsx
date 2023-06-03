@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import { productCategories } from '../../data/ProductData';
@@ -5,8 +6,11 @@ import ProductCard from './ProductCard';
 import Pagination from './Pagination';
 import TopFilter from './filter/TopFilter';
 import LeftFilter from './filter/LeftFilter';
+import { useDispatch, useSelector } from 'react-redux';
+import { sendFilteredProducts } from '../../redux/actions/FilteredProductAction';
 
 function ProductRow() {
+
     const { categoryName } = useParams();
     const { subCategoryName } = useParams();
 
@@ -21,7 +25,8 @@ function ProductRow() {
     const [filterActive, setFilterActive] = useState(false)
     const [subCategoryFilterActive, setSubCategoryFilterActive] = useState(false)
     const category = productCategories.find((category) => category.name === categoryName);
-    
+
+
 
     // məhsul filterlənməsi
     useEffect(() => {
@@ -87,8 +92,13 @@ function ProductRow() {
             }
         }
         filteredProducts.sort((a, b) => a.price - b.price);
+        
+        
         setProducts(filteredProducts);
     }, [categoryName, subCategoryName, location.pathname])
+
+
+
 
     // mehsullarin qiymete gore siralanmasi
     const changeSortProducts = (value) => {

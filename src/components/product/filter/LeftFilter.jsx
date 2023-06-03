@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import manatIcon from '../../../image/icon/manat.svg'
+import { useDispatch } from 'react-redux'
+import { sendFilteredProducts } from '../../../redux/actions/FilteredProductAction'
 
 function LeftFilter({ subCategoryFilterActive, category, products }) {
     const [filterActive, setFilterActive] = useState(false)
@@ -12,8 +14,8 @@ function LeftFilter({ subCategoryFilterActive, category, products }) {
     let [rangeMax, setRangeMax] = useState(2000)
 
 
-    const [selectedSubcategoryNames, setSelectedSubCategoryNames] = useState([])
-    const [selectedPropertyNames, setSelectedPropertyNames] = useState([])
+    const [selectedSubcategoryNames, setSelectedSubCategoryNames] = useState([]);
+    const [propertyFilter, setPropertyFilter] = useState('no-filter');
 
     const handleSubCategpryCheckboxChange = (e) => {
         const subCategoryName = e.target.value;
@@ -29,25 +31,23 @@ function LeftFilter({ subCategoryFilterActive, category, products }) {
         }
     }
     const handlePropertyCheckboxChange = (e) => {
-        const propertyName = e.target.value;
-        if (e.target.checked) {
-            setSelectedPropertyNames((prevSelectedPropertyNames) => [
-                ...prevSelectedPropertyNames,
-                propertyName
-            ])
-        } else {
-            setSelectedPropertyNames((prevSelectedPropertyNames) =>
-                prevSelectedPropertyNames.filter((name) => name !== propertyName)
-            )
+        if(e.target.checked){
+            setPropertyFilter(e.target.value)
+        }else{
+            setPropertyFilter('no-filter')
         }
     }
 
+    const dispatch = useDispatch()
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setFilteredProducts(products)
         applyFilters();
         setFilteredProducts(applyFilters())
+        dispatch(sendFilteredProducts(filteredProducts))
     }
+    
 
     const applyFilters = () => {
         let filteredProducts = products;
@@ -68,13 +68,27 @@ function LeftFilter({ subCategoryFilterActive, category, products }) {
                 selectedSubcategoryProducts.includes(product)
             );
         }
+        if(propertyFilter !== 'no-filter'){
+            if(propertyFilter === 'filter-new'){
+                filteredProducts = filteredProducts.filter((product) => product.isNew)
+            }else if(propertyFilter === 'filter-discount'){
+                filteredProducts = filteredProducts.filter((product) => product.discount)
+            }else if(propertyFilter === 'filter-best-seller'){
+                filteredProducts = filteredProducts.filter((product) => product.bestSeller)
+            }
+        }
         return filteredProducts;
     }
     const [filteredProducts, setFilteredProducts] = useState(products);
 
-    useEffect(() => {
-        applyFilters();
-    }, [products]);
+    // useEffect(() => {
+    //     applyFilters();
+    // }, [products]);
+
+    // useEffect(() => {
+    //     dispatch(sendFilteredProducts(filteredProducts))
+    // },[filteredProducts])
+
 
     //console.log(filteredProducts)
 
@@ -121,15 +135,15 @@ function LeftFilter({ subCategoryFilterActive, category, products }) {
                 }
                 <div className='property-filter'>
                     <div className="form-check">
-                        <input type="checkbox" className='form-check-input' id='new' value='filter-new' onClick={handlePropertyCheckboxChange} />
+                        <input type="radio" name='property-filter' className='form-check-input' id='new' value='filter-new' onClick={handlePropertyCheckboxChange} />
                         <label className='form-check-label' htmlFor='new'>Yeni</label>
                     </div>
                     <div className="form-check">
-                        <input type="checkbox" className='form-check-input' id='discount' value='filter-discount' onClick={handlePropertyCheckboxChange} />
+                        <input type="radio" name='property-filter' className='form-check-input' id='discount' value='filter-discount' onClick={handlePropertyCheckboxChange} />
                         <label className='form-check-label' htmlFor='discount'>Endirimli</label>
                     </div>
                     <div className="form-check">
-                        <input type="checkbox" className='form-check-input' id='best-seller' value='filter-best-seller' onClick={handlePropertyCheckboxChange} />
+                        <input type="radio" name='property-filter' className='form-check-input' id='best-seller' value='filter-best-seller' onClick={handlePropertyCheckboxChange} />
                         <label className='form-check-label' htmlFor='best-seller'>Ən çox satılan</label>
                     </div>
                 </div>
@@ -140,3 +154,4 @@ function LeftFilter({ subCategoryFilterActive, category, products }) {
 }
 
 export default LeftFilter
+

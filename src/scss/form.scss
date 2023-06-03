@@ -40,6 +40,7 @@ form{
         &:checked{
             background-color: var(--color-2);
             border-color: var(--black-1);
+            box-shadow: none;
         }
     }
     textarea{
