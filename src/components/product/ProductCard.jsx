@@ -3,10 +3,9 @@ import heartIconOutline from '../../image/icon/heart-outline.svg'
 import heartIconFilled from '../../image/icon/heart-filled.svg'
 import { Link } from 'react-router-dom';
 import { productCategories } from '../../data/ProductData';
-import { addToWishlist, removeFromWishlist } from '../../redux/actions/WishListActions';
-import { addToBasket, removeFromBasket } from '../../redux/actions/BasketActions';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import { addToBasket, addToWishlist, removeFromWishlist } from '../../redux/actions/ProductAction';
 
 function ProductCard({ product }) {
 
@@ -31,7 +30,7 @@ function ProductCard({ product }) {
   const { category, subCategory } = findCategoryAndSubCategory(product.id);
 
 
-  const wishlistProducts = useSelector(state => state.wishlistProducts);
+  const wishlistProducts = useSelector(state => state.productState.wishlistProducts);
   const dispatch = useDispatch();
   const [isAlreadyInBasket, setIsAlreadyInBasket] = useState(false);
 
@@ -89,18 +88,6 @@ function ProductCard({ product }) {
 }
 
 
-const mapStateToProps = (state) => {
-  return {
-    wishlistProducts: state,
-    basketProducts: state,
-  };
-};
 
-const mapDispatchToProps = {
-  addToWishlist,
-  removeFromWishlist,
-  addToBasket,
-  removeFromBasket,
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductCard)
+export default ProductCard

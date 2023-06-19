@@ -193,6 +193,9 @@ section.product-detail{
             }
         }
         .value{
+            max-width: 70px;
+            border: none;
+            outline: none;
             font-size: 25px;
             font-weight: 600;
             min-width: 50px;

@@ -1,4 +1,19 @@
-import { ADD_TO_BASKET, DECREASE_PRODUCT_AMOUNT, INCREASE_PRODUCT_AMOUNT, REMOVE_FROM_BASKET } from "../types/ActionTypes"
+import { ADD_TO_BASKET, ADD_TO_WISHLIST, DECREASE_PRODUCT_AMOUNT, INCREASE_PRODUCT_AMOUNT, REMOVE_FROM_BASKET, REMOVE_FROM_WISHLIST } from "../types/ActionTypes"
+
+
+export const addToWishlist = (product) => {
+    return {
+        type: ADD_TO_WISHLIST,
+        payload: product, 
+    };
+};
+
+export const removeFromWishlist = (productId) => {
+    return {
+        type: REMOVE_FROM_WISHLIST,
+        payload: productId,
+    }
+}
 
 export const addToBasket = (product) => {
     return {

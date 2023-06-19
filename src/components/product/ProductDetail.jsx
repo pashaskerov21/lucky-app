@@ -5,8 +5,8 @@ import { productCategories } from '../../data/ProductData';
 import SimiliarProducts from './slider/SimiliarProducts';
 import basketIcon from '../../image/icon/cart.svg'
 import { useDispatch, useSelector } from 'react-redux';
-import { addToBasket } from '../../redux/actions/BasketActions';
 import { toast } from 'react-toastify';
+import { addToBasket, decreaseProductAmount, increaseProductAmount } from '../../redux/actions/ProductAction';
 
 function ProductDetail() {
     let { categoryName, subCategoryName, productName } = useParams();
@@ -17,32 +17,44 @@ function ProductDetail() {
     let similiarProducts = subCategory?.products.filter(p => p.name !== product.name);
 
 
+    const basketProducts = useSelector(state => state.productState.basketProducts);
+    const [productStatus, setProductStatus] = useState(false)
+
+
     const dispatch = useDispatch();
-    const [amount, setAmount] = useState(1);
-
-    const [isAlreadyInBasket, setIsAlreadyInBasket] = useState(false);
 
 
-    const handleAddToBasket = () => {
-        if (!isAlreadyInBasket) {
+    const handleAddBasketFormSubmit = (e) => {
+        e.preventDefault();
+        
+        if (basketProducts.find((basketProduct) => basketProduct.id === product.id)) {
+            setProductStatus(true)
+        }
+        if (productStatus === true) {
+            console.log('salam')
+        } else {
             dispatch(addToBasket(product));
-            toast.success('Ürün sepete eklendi!');
-            setIsAlreadyInBasket(true)
+            toast.success('Məhsul səbətə əlavə olundu!');
+            setProductStatus(true)
         }
 
-    };
 
+    }
 
+    const decAmount = () => {
+        if (product.amount > 1) {
+            product.amount -= 1
+            dispatch(decreaseProductAmount(product))
+        }
+    }
+    const incAmount = () => {
+        product.amount += 1
+        dispatch(increaseProductAmount(product))
+    }
 
-    // const decAmount = () => {
-    //     if (amount > 1) {
-    //         setAmount(amount - 1)
-    //     }
-    // }
-    // const incAmount = () => {
-    //     setAmount(amount + 1)
-    // }
-
+    const handleChagngeAmountInput = (e) => {
+        product.amount = e.target.value;
+    }
 
     return (
         <Layout>
@@ -72,14 +84,15 @@ function ProductDetail() {
                                         <span>{product.price.toFixed(2)} Azn</span>
                                     </div>
                                 </div>
-                                <div className="add-basket">
-                                    {/* <div className="amount">
-                                        <button onClick={() => decAmount()}>-</button>
-                                        <span className='value'>{amount}</span>
-                                        <button onClick={() => incAmount()}>+</button>
-                                    </div> */}
-                                    <button onClick={handleAddToBasket} className='basket-button'>Səbətə at <img src={basketIcon} alt="basket-icon" /></button>
-                                </div>
+                                <form onSubmit={handleAddBasketFormSubmit} className="add-basket">
+                                    <div className="amount my-4">
+                                        <button type='button' onClick={() => decAmount()}>-</button>
+                                        <input type="number" className='value' value={product.amount} onChange={handleChagngeAmountInput} />
+                                        {/* <span className='value'>{amount}</span> */}
+                                        <button type='button' onClick={() => incAmount()}>+</button>
+                                    </div>
+                                    <button type='submit' className='basket-button'>Səbətə at <img src={basketIcon} alt="basket-icon" /></button>
+                                </form>
                             </div>
                         </div>
                     </div>

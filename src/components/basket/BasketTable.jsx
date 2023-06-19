@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { decreaseProductAmount, increaseProductAmount, removeFromBasket } from '../../redux/actions/BasketActions';
 import { Link } from 'react-router-dom';
 import { updateTotal } from '../../redux/actions/BasketTotalAction';
+import { decreaseProductAmount, increaseProductAmount, removeFromBasket } from '../../redux/actions/ProductAction';
+import { productCategories } from '../../data/ProductData';
+
 
 function BasketTable() {
-    const basketProducts = useSelector(state => state.basketProducts);
+    const basketProducts = useSelector(state => state.productState.basketProducts);
     const basketTotal = useSelector(state => state.basketTotal)
     const dispatch = useDispatch();
     let total = basketTotal.total
@@ -22,7 +24,7 @@ function BasketTable() {
     useEffect(() => {
         const newTotal = basketProducts.reduce((acc, product) => acc + product.price * (product.amount ? product.amount : 1), 0);
         dispatch(updateTotal(newTotal));
-    }, [basketProducts,dispatch]);
+    }, [basketProducts, dispatch]);
 
     const [alert, setAlert] = useState(false)
     const [orderLinkPath, setOrderLinkPath] = useState('')
@@ -52,6 +54,22 @@ function BasketTable() {
         }
     }
 
+
+    const [imagePath, setImagePath] = useState('/basket')
+
+    function findProductParams(productId) {
+        for (const category of productCategories) {
+            for (const subCategory of category.subcategories) {
+                for (const product of subCategory.products) {
+                    if (product.id === productId) {
+                        setImagePath(`/products/${encodeURIComponent(category.name)}/${encodeURIComponent(subCategory.name)}/${encodeURIComponent(product.name)}`)
+                    }
+                }
+            }
+        }
+    }
+
+
     return (
         <section className="basket">
             <div className="container">
@@ -78,9 +96,10 @@ function BasketTable() {
                                         basketProducts.map(product => (
                                             <tr key={product.id}>
                                                 <td>
-                                                    <Link className='product-image'>
+                                                    <Link to={imagePath} onMouseDown={() => findProductParams(product.id)}  className='product-image'>
                                                         <img src={product.img} alt="product" />
                                                     </Link>
+                                                    
                                                 </td>
                                                 <td>
                                                     <div className='product-name'>

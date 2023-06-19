@@ -5,8 +5,8 @@ import basketIcon from '../../image/icon/cart.svg'
 import heartIcon from '../../image/icon/heart.svg'
 
 function GeneralIcons() {
-    const wishlistProducts = useSelector(state => state.wishlistProducts);
-    const basketProducts = useSelector(state => state.basketProducts);
+    const wishlistProducts = useSelector(state => state.productState.wishlistProducts);
+    const basketProducts = useSelector(state => state.productState.basketProducts);
     return (
         <div className="general-icons">
             <Link to='/basket'>
