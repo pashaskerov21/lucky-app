@@ -78,7 +78,7 @@ function BasketTable() {
                 </div>
                 {
                     basketProducts.length > 0 ? (
-                        <>
+                        <div className='table-wrapper'>
 
                             <table>
                                 <thead>
@@ -133,7 +133,7 @@ function BasketTable() {
                                     }
                                 </tbody>
                             </table>
-                        </>
+                        </div>
                     ) : (
                         null
                     )

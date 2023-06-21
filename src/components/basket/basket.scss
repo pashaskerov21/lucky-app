@@ -1,7 +1,12 @@
 section.basket{
-    overflow: auto;
+    
     .container{
         align-items: flex-start;
+    }
+    .table-wrapper{
+        width: 100%;
+        overflow: auto;
+        margin-bottom: 40px;
     }
     .basket-alert{
         width: 100%;

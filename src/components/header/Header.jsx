@@ -28,7 +28,7 @@ function Header() {
     <header >
       <TopNav />
       <MiddleNav menu={menu} toggleMenu={toggleMenu}/>
-      <BottomNav fixed={fixed} menu={menu} categoryMenu={categoryMenu} toggleCategoryMenu={toggleCategoryMenu} openCategoryMenu={openCategoryMenu} closeCategoryMenu={closeCategoryMenu} />
+      <BottomNav fixed={fixed} menu={menu} toggleMenu={toggleMenu} categoryMenu={categoryMenu} toggleCategoryMenu={toggleCategoryMenu} openCategoryMenu={openCategoryMenu} closeCategoryMenu={closeCategoryMenu} />
     </header>
   )
 }

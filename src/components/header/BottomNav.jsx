@@ -5,7 +5,7 @@ import Search from './Search'
 import CategoryMenu from './CategoryMenu'
 import GeneralIcons from './GeneralIcons'
 
-function BottomNav({ menu, categoryMenu, toggleCategoryMenu, openCategoryMenu, closeCategoryMenu, fixed }) {
+function BottomNav({ menu,toggleMenu, categoryMenu, toggleCategoryMenu, openCategoryMenu, closeCategoryMenu, fixed }) {
   const [termMenu, setTermMenu] = useState(false)
   const openTermMenu = () => {
     setTermMenu(true)
@@ -20,25 +20,25 @@ function BottomNav({ menu, categoryMenu, toggleCategoryMenu, openCategoryMenu, c
         <div className='search-wrapper d-xl-none'>
           <Search />
         </div>
-        <Link to='/about'>Haqqımızda</Link>
-        <Link to='/products/new'>Yeni</Link>
-        <Link to='/products/discounts'>Endirimlər</Link>
-        <Link to='/products/best-sellers'>Ən çox satılanlar</Link>
+        <Link onClick={() => toggleMenu()} to='/about'>Haqqımızda</Link>
+        <Link onClick={() => toggleMenu()} to='/products/new'>Yeni</Link>
+        <Link onClick={() => toggleMenu()} to='/products/discounts'>Endirimlər</Link>
+        <Link onClick={() => toggleMenu()} to='/products/best-sellers'>Ən çox satılanlar</Link>
         <div className="term-dropdown">
           <Link onMouseMove={() => { openTermMenu() }} onMouseLeave={() => { closeTermMenu() }}>Şərtlər <i className="fa-solid fa-chevron-right"></i></Link>
           <div className={termMenu ? 'term-menu' : 'term-menu d-none'} onMouseMove={() => { openTermMenu() }} onMouseLeave={() => { closeTermMenu() }}>
-            <Link to='/terms/delivery'>Çatdırılma</Link>
-            <Link to='/terms/return-exchanges'>Geri Qaytarılma və dəyişdirilmə</Link>
+            <Link onClick={() => toggleMenu()} to='/terms/delivery'>Çatdırılma</Link>
+            <Link onClick={() => toggleMenu()} to='/terms/return-exchanges'>Geri Qaytarılma və dəyişdirilmə</Link>
           </div>
         </div>
-        <Link to='/contact'>Əlaqə</Link>
+        <Link onClick={() => toggleMenu()} to='/contact'>Əlaqə</Link>
       </div>
       <div className={fixed ? 'fixnav-items d-none d-xl-flex' : 'fixnav-items d-none d-xl-none'}>
         <Search/>
         <GeneralIcons/>
       </div>
       <div className="categories">
-        <div className='all-category-button'  onMouseMove={() => { openCategoryMenu() }} onMouseLeave={() => { closeCategoryMenu() }}>
+        <div className='all-category-button' onClick={() => toggleCategoryMenu()}  onMouseMove={() => { openCategoryMenu() }} onMouseLeave={() => { closeCategoryMenu() }}>
           <img src={categoryButtonIcon} alt="cat-icon" />
           <span>Kateqoriyalar</span>
         </div>

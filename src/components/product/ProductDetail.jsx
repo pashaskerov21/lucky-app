@@ -21,39 +21,42 @@ function ProductDetail() {
     const [productStatus, setProductStatus] = useState(false)
 
 
+    const [amount, setAmount] = useState(1)
     const dispatch = useDispatch();
 
 
     const handleAddBasketFormSubmit = (e) => {
-        e.preventDefault();
-        
-        if (basketProducts.find((basketProduct) => basketProduct.id === product.id)) {
-            setProductStatus(true)
+        if (e.cancelable) {
+            e.preventDefault();
         }
-        if (productStatus === true) {
-            console.log('salam')
+
+        if (basketProducts.find((basketProduct) => basketProduct.id === product.id)) {
+            product.basketStatus = true
+        }
+        if (product.basketStatus === true) {
+            let productInBasket = basketProducts.find((p) => p.id === product.id)
+            productInBasket.amount = amount;
+            toast.success('Məhsul səbətə əlavə olundu!');
         } else {
+            product.amount = amount
             dispatch(addToBasket(product));
             toast.success('Məhsul səbətə əlavə olundu!');
-            setProductStatus(true)
         }
-
-
     }
 
     const decAmount = () => {
         if (product.amount > 1) {
-            product.amount -= 1
+            setAmount(amount - 1)
             dispatch(decreaseProductAmount(product))
         }
     }
     const incAmount = () => {
-        product.amount += 1
+        setAmount(amount + 1)
         dispatch(increaseProductAmount(product))
     }
 
     const handleChagngeAmountInput = (e) => {
-        product.amount = e.target.value;
+        setAmount(e.target.value)
     }
 
     return (
@@ -87,7 +90,7 @@ function ProductDetail() {
                                 <form onSubmit={handleAddBasketFormSubmit} className="add-basket">
                                     <div className="amount my-4">
                                         <button type='button' onClick={() => decAmount()}>-</button>
-                                        <input type="number" className='value' value={product.amount} onChange={handleChagngeAmountInput} />
+                                        <input type="number" className='value' value={amount} onChange={handleChagngeAmountInput} />
                                         {/* <span className='value'>{amount}</span> */}
                                         <button type='button' onClick={() => incAmount()}>+</button>
                                     </div>

@@ -165,7 +165,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: true, amount: 1,
+                        bestSeller: true, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-1-2',
@@ -175,7 +175,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-1-3',
@@ -185,7 +185,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: true, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-1-4',
@@ -195,7 +195,7 @@ export const productCategories = [
                         oldPrice: 1.25,
                         discount: true,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -211,7 +211,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-2-2',
@@ -221,7 +221,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -237,7 +237,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-3-2',
@@ -247,7 +247,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-3-3',
@@ -257,7 +257,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: true, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -273,7 +273,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-4-2',
@@ -283,7 +283,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: true, amount: 1,
+                        bestSeller: true, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-4-3',
@@ -293,7 +293,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -309,7 +309,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-5-2',
@@ -319,7 +319,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-5-3',
@@ -329,7 +329,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: true, amount: 1,
+                        bestSeller: true, amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -345,7 +345,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: true, amount: 1,
+                        bestSeller: true, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-6-2',
@@ -355,7 +355,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -371,7 +371,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: true, amount: 1,
+                        bestSeller: true, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-7-2',
@@ -381,7 +381,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-7-3',
@@ -391,7 +391,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -407,7 +407,7 @@ export const productCategories = [
                         oldPrice: 1.5,
                         discount: true,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-8-2',
@@ -417,7 +417,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: true, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -433,7 +433,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: true, amount: 1,
+                        bestSeller: true, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-9-2',
@@ -443,7 +443,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: true, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-9-3',
@@ -453,7 +453,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -469,7 +469,7 @@ export const productCategories = [
                         oldPrice: 1.1,
                         discount: true,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-10-2',
@@ -479,7 +479,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: true, amount: 1,
+                        bestSeller: true, amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -495,7 +495,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: true, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-11-2',
@@ -505,7 +505,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: true, amount: 1,
+                        bestSeller: true, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-11-3',
@@ -515,7 +515,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: true, amount: 1,
+                        bestSeller: true, amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -531,7 +531,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-12-2',
@@ -541,7 +541,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: true, amount: 1,
+                        bestSeller: true, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-12-3',
@@ -551,7 +551,7 @@ export const productCategories = [
                         oldPrice: 18.50,
                         discount: true,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -567,7 +567,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-13-2',
@@ -577,7 +577,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: true, amount: 1,
+                        bestSeller: true, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-13-3',
@@ -587,7 +587,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: true, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -603,7 +603,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: true, amount: 1,
+                        bestSeller: true, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-1-14-2',
@@ -613,7 +613,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: true, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                         
                     },
                     {
@@ -624,7 +624,7 @@ export const productCategories = [
                         oldPrice: 6.50,
                         discount: true,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                         
                     },
                     {
@@ -635,7 +635,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: true, amount: 1,
+                        bestSeller: true, amount: 1, basketStatus: false
                         
                     },
                 ]
@@ -661,7 +661,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-1-2',
@@ -672,7 +672,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-1-3',
@@ -683,7 +683,7 @@ export const productCategories = [
                         discount: false,
                         isNew: true, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-1-4',
@@ -694,7 +694,7 @@ export const productCategories = [
                         discount: true,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-1-5',
@@ -705,7 +705,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -722,7 +722,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-2-2',
@@ -732,7 +732,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: true, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-2-3',
@@ -742,7 +742,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -759,7 +759,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-3-2',
@@ -770,7 +770,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-3-3',
@@ -781,7 +781,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -798,7 +798,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-4-2',
@@ -809,7 +809,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-4-3',
@@ -820,7 +820,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-4-4',
@@ -831,7 +831,7 @@ export const productCategories = [
                         discount: false,
                         isNew: true, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-4-5',
@@ -842,7 +842,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-4-6',
@@ -853,7 +853,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-4-7',
@@ -864,7 +864,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-4-8',
@@ -875,7 +875,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -892,7 +892,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-5-2',
@@ -903,7 +903,7 @@ export const productCategories = [
                         discount: true,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-5-3',
@@ -914,7 +914,7 @@ export const productCategories = [
                         discount: true,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -931,7 +931,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-6-2',
@@ -942,7 +942,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-6-3',
@@ -953,7 +953,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-6-4',
@@ -964,7 +964,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-6-5',
@@ -975,7 +975,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-2-6-6',
@@ -986,7 +986,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -1011,7 +1011,7 @@ export const productCategories = [
                         discount: true,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-3-1-2',
@@ -1022,7 +1022,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-3-1-3',
@@ -1033,7 +1033,7 @@ export const productCategories = [
                         discount: false,
                         isNew: true, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -1050,7 +1050,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-3-2-2',
@@ -1061,7 +1061,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-3-2-3',
@@ -1072,7 +1072,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-3-2-4',
@@ -1083,7 +1083,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-3-2-5',
@@ -1094,7 +1094,7 @@ export const productCategories = [
                         discount: true,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -1111,7 +1111,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-3-3-2',
@@ -1122,7 +1122,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-3-3-3',
@@ -1133,7 +1133,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-3-3-4',
@@ -1144,7 +1144,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -1161,7 +1161,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-3-4-2',
@@ -1172,7 +1172,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-3-4-3',
@@ -1183,7 +1183,7 @@ export const productCategories = [
                         discount: true,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -1200,7 +1200,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-3-5-2',
@@ -1211,7 +1211,7 @@ export const productCategories = [
                         discount: false,
                         isNew: true, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-3-5-3',
@@ -1222,7 +1222,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-3-5-4',
@@ -1233,7 +1233,7 @@ export const productCategories = [
                         discount: false,
                         isNew: true, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-3-5-5',
@@ -1244,7 +1244,7 @@ export const productCategories = [
                         discount: true,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-3-5-6',
@@ -1255,7 +1255,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-3-5-7',
@@ -1266,7 +1266,7 @@ export const productCategories = [
                         discount: true,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -1291,7 +1291,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-4-1-2',
@@ -1302,7 +1302,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-4-1-3',
@@ -1313,7 +1313,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -1330,7 +1330,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-4-2-2',
@@ -1341,7 +1341,7 @@ export const productCategories = [
                         discount: false,
                         isNew: true, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-4-2-3',
@@ -1352,7 +1352,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -1369,7 +1369,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -1386,7 +1386,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-4-4-2',
@@ -1397,7 +1397,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-4-4-3',
@@ -1408,7 +1408,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -1425,7 +1425,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-4-5-2',
@@ -1436,7 +1436,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-4-5-3',
@@ -1447,7 +1447,7 @@ export const productCategories = [
                         discount: false,
                         isNew: true, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -1463,7 +1463,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-4-6-2',
@@ -1473,7 +1473,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-4-6-3',
@@ -1483,7 +1483,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-4-6-4',
@@ -1493,7 +1493,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -1509,7 +1509,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-4-7-2',
@@ -1519,7 +1519,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -1544,7 +1544,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-5-1-2',
@@ -1555,7 +1555,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-5-1-3',
@@ -1566,7 +1566,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -1583,7 +1583,7 @@ export const productCategories = [
                         discount: true,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-5-2-2',
@@ -1594,7 +1594,7 @@ export const productCategories = [
                         discount: true,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-5-2-3',
@@ -1605,7 +1605,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-5-2-4',
@@ -1615,7 +1615,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-5-2-5',
@@ -1625,7 +1625,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-5-2-6',
@@ -1635,7 +1635,7 @@ export const productCategories = [
                         oldPrice: 0,
                         discount: false,
                         isNew: false, 
-                        bestSeller: false, amount: 1,
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -1660,7 +1660,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1, 
+                        amount: 1, basketStatus: false 
                     },
                     {
                         id: 'c-6-1-2',
@@ -1671,7 +1671,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,                       
+                        amount: 1, basketStatus: false                       
                     },
                     {
                         id: 'c-6-1-3',
@@ -1682,7 +1682,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -1699,7 +1699,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-6-2-2',
@@ -1710,7 +1710,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -1735,7 +1735,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-7-1-2',
@@ -1746,7 +1746,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-7-1-3',
@@ -1757,7 +1757,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-7-1-4',
@@ -1768,7 +1768,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-7-1-5',
@@ -1779,7 +1779,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-7-1-6',
@@ -1790,7 +1790,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -1807,7 +1807,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: true, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-7-2-2',
@@ -1818,7 +1818,7 @@ export const productCategories = [
                         discount: false,
                         isNew: false, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-7-2-3',
@@ -1829,7 +1829,7 @@ export const productCategories = [
                         discount: false,
                         isNew: true, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                     {
                         id: 'c-7-2-4',
@@ -1840,7 +1840,7 @@ export const productCategories = [
                         discount: false,
                         isNew: true, 
                         bestSeller: false, 
-                        amount: 1,
+                        amount: 1, basketStatus: false
                     },
                 ]
             },
