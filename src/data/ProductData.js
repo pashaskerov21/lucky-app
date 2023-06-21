@@ -38,6 +38,19 @@ import officeProduct_14_1 from '../image/product/office/product-14-1.png'
 import officeProduct_14_2 from '../image/product/office/product-14-2.png'
 import officeProduct_14_3 from '../image/product/office/product-14-3.jpg'
 import officeProduct_14_4 from '../image/product/office/product-14-4.jpg'
+import officeProduct_15_1 from '../image/product/office/product-15-1.jpg'
+import officeProduct_15_2 from '../image/product/office/product-15-2.png'
+import officeProduct_15_3 from '../image/product/office/product-15-3.png'
+import officeProduct_16_1 from '../image/product/office/product-16-1.jpg'
+import officeProduct_16_2 from '../image/product/office/product-16-2.jpg'
+import officeProduct_17_1 from '../image/product/office/product-17-1.jpg'
+import officeProduct_17_2 from '../image/product/office/product-17-2.jpg'
+import officeProduct_17_3 from '../image/product/office/product-17-3.jpg'
+import officeProduct_17_4 from '../image/product/office/product-17-4.png'
+import officeProduct_18_1 from '../image/product/office/product-18-1.jpg'
+import officeProduct_18_2 from '../image/product/office/product-18-2.jpg'
+import officeProduct_18_3 from '../image/product/office/product-18-3.jpg'
+import officeProduct_18_4 from '../image/product/office/product-18-4.png'
 
 import foodProduct_1_1 from '../image/product/food/product-1-1.jpg'
 import foodProduct_1_2 from '../image/product/food/product-1-2.jpg'
@@ -110,6 +123,11 @@ import electronicProduct_6_3 from '../image/product/electronic/product-6-3.png'
 import electronicProduct_6_4 from '../image/product/electronic/product-6-4.jpg'
 import electronicProduct_7_1 from '../image/product/electronic/product-7-1.png'
 import electronicProduct_7_2 from '../image/product/electronic/product-7-2.jpg'
+import electronicProduct_8_1 from '../image/product/electronic/product-8-1.jpg'
+import electronicProduct_8_2 from '../image/product/electronic/product-8-2.jpg'
+import electronicProduct_8_3 from '../image/product/electronic/product-8-3.png'
+import electronicProduct_8_4 from '../image/product/electronic/product-8-4.jpg'
+import electronicProduct_8_5 from '../image/product/electronic/product-8-5.png'
 
 import flowerProduct_1_1 from '../image/product/flower/product-1-1.jpg'
 import flowerProduct_1_2 from '../image/product/flower/product-1-2.jpg'
@@ -637,6 +655,160 @@ export const productCategories = [
                         isNew: false, 
                         bestSeller: true, amount: 1, basketStatus: false
                         
+                    },
+                ]
+            },
+            {
+                id: 'c-1-15',
+                name: 'yapışqan',
+                products: [
+                    {
+                        id: 'c-1-15-1',
+                        name: 'Yapışqan "Fantastick" 8qr',
+                        price: 0.89,
+                        img: officeProduct_15_1,
+                        oldPrice: 0,
+                        discount: false,
+                        isNew: false, 
+                        bestSeller: false, amount: 1, basketStatus: false
+                    },
+                    {
+                        id: 'c-1-15-2',
+                        name: 'Yapışqan "Dolphin" 15qr',
+                        price: 0.96,
+                        img: officeProduct_15_2,
+                        oldPrice: 0,
+                        discount: false,
+                        isNew: false, 
+                        bestSeller: true, amount: 1, basketStatus: false
+                    },
+                    {
+                        id: 'c-1-15-3',
+                        name: 'Yapışqan "Dolphin" 25qr',
+                        price: 1.45,
+                        img: officeProduct_15_3,
+                        oldPrice: 0,
+                        discount: false,
+                        isNew: false, 
+                        bestSeller: false, amount: 1, basketStatus: false
+                    },
+                ]
+            },
+            {
+                id: 'c-1-16',
+                name: 'zibil qabı',
+                products: [
+                    {
+                        id: 'c-1-16-1',
+                        name: 'Zibil Qabı(kiçik ölçü)',
+                        price: 4.50,
+                        img: officeProduct_16_1,
+                        oldPrice: 0,
+                        discount: false,
+                        isNew: false, 
+                        bestSeller: false, amount: 1, basketStatus: false
+                    },
+                    {
+                        id: 'c-1-16-2',
+                        name: 'Zibil Qabı (böyük ölçü)',
+                        price: 5.50,
+                        img: officeProduct_16_2,
+                        oldPrice: 0,
+                        discount: false,
+                        isNew: false, 
+                        bestSeller: false, amount: 1, basketStatus: false
+                    },
+                ]
+            },
+            {
+                id: 'c-1-17',
+                name: 'karandaş yonan',
+                products: [
+                    {
+                        id: 'c-1-17-1',
+                        name: 'Karandaş yonan "Maped" M-6331',
+                        price: 0.50,
+                        img: officeProduct_17_1,
+                        oldPrice: 0,
+                        discount: false,
+                        isNew: false, 
+                        bestSeller: false, amount: 1, basketStatus: false
+                    },
+                    {
+                        id: 'c-1-17-2',
+                        name: 'Karandaş yonan “Maped” M-0198',
+                        price: 0.68,
+                        img: officeProduct_17_2,
+                        oldPrice: 0,
+                        discount: false,
+                        isNew: false, 
+                        bestSeller: true, amount: 1, basketStatus: false
+                    },
+                    {
+                        id: 'c-1-17-3',
+                        name: 'Karandaş yonan "Maped" M-6221',
+                        price: 0.70,
+                        img: officeProduct_17_3,
+                        oldPrice: 0,
+                        discount: false,
+                        isNew: false, 
+                        bestSeller: false, amount: 1, basketStatus: false
+                    },
+                    {
+                        id: 'c-1-17-4',
+                        name: 'Karandaş yonan “Maped” M-7562',
+                        price: 1.05,
+                        img: officeProduct_17_4,
+                        oldPrice: 0,
+                        discount: false,
+                        isNew: false, 
+                        bestSeller: false, amount: 1, basketStatus: false
+                    },
+                ]
+            },
+            {
+                id: 'c-1-18',
+                name: 'yazı lövhəsi',
+                products: [
+                    {
+                        id: 'c-1-18-1',
+                        name: 'Yazi Lövhə Silgisi (balaca)',
+                        price: 0.80,
+                        img: officeProduct_18_1,
+                        oldPrice: 0,
+                        discount: false,
+                        isNew: false, 
+                        bestSeller: false, amount: 1, basketStatus: false
+                    },
+                    {
+                        id: 'c-1-18-2',
+                        name: 'Yazi Lövhə Silgisi "Smile"',
+                        price: 0.82,
+                        img: officeProduct_18_2,
+                        oldPrice: 0,
+                        discount: false,
+                        isNew: false, 
+                        bestSeller: true, amount: 1, basketStatus: false
+                    },
+                    {
+                        id: 'c-1-18-3',
+                        name: 'Yazi Lövhə Silgisi (böyük)',
+                        price: 1.10,
+                        img: officeProduct_18_3,
+                        oldPrice: 0,
+                        discount: false,
+                        isNew: false, 
+                        bestSeller: false, amount: 1, basketStatus: false
+                    },
+                    {
+                        id: 'c-1-18-4',
+                        name: 'Lövhə 50x70',
+                        price: 50.00,
+                        img: officeProduct_18_4,
+                        oldPrice: 0,
+                        discount: false,
+                        isNew: false, 
+                        bestSeller: false, amount: 1, basketStatus: false
                     },
                 ]
             },
@@ -1523,6 +1695,63 @@ export const productCategories = [
                     },
                 ]
             },
+            {
+                id: 'c-5-7',
+                name: 'uzadıcı',
+                products: [
+                    {
+                        id: 'c-5-7-1',
+                        name: 'Keçid "Merkan" 1əd',
+                        price: 3.00,
+                        img: electronicProduct_8_1,
+                        oldPrice: 0,
+                        discount: false,
+                        isNew: false, 
+                        bestSeller: false, amount: 1, basketStatus: false
+                    },
+                    {
+                        id: 'c-5-7-2',
+                        name: 'Uzadıcı "Viko" 3-lü',
+                        price: 11.40,
+                        img: electronicProduct_8_2,
+                        oldPrice: 0,
+                        discount: false,
+                        isNew: false, 
+                        bestSeller: true, amount: 1, basketStatus: false
+                    },
+                    {
+                        id: 'c-5-7-3',
+                        name: 'Uzadıcı "Viko" 4-lü açarlı (Qara)',
+                        price: 19.00,
+                        img: electronicProduct_8_3,
+                        oldPrice: 23.50,
+                        discount: true,
+                        isNew: true, 
+                        bestSeller: true, amount: 1, basketStatus: false
+                    },
+                    {
+                        id: 'c-5-7-4',
+                        name: 'Uzadıcı "Viko" 4-lü açarlı (Ağ)',
+                        price: 19.90,
+                        img: electronicProduct_8_4,
+                        oldPrice: 23.50,
+                        discount: true,
+                        isNew: false, 
+                        bestSeller: true, amount: 1, basketStatus: false
+                    },
+                    {
+                        id: 'c-5-7-5',
+                        name: 'Uzadıcı "Viko" 4-lü',
+                        price: 20.50,
+                        img: electronicProduct_8_5,
+                        oldPrice: 0,
+                        discount: false,
+                        isNew: false, 
+                        bestSeller: true, amount: 1, basketStatus: false
+                    },
+                ]
+            },
+            
         ]
     },
     {

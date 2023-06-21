@@ -18,7 +18,6 @@ function ProductDetail() {
 
 
     const basketProducts = useSelector(state => state.productState.basketProducts);
-    const [productStatus, setProductStatus] = useState(false)
 
 
     const [amount, setAmount] = useState(1)

@@ -6,15 +6,14 @@ import ProductCard from './ProductCard';
 import Pagination from './Pagination';
 import TopFilter from './filter/TopFilter';
 import LeftFilter from './filter/LeftFilter';
-import { useDispatch, useSelector } from 'react-redux';
-import { sendFilteredProducts } from '../../redux/actions/FilteredProductAction';
+import { useSelector } from 'react-redux';
 
 function ProductRow() {
 
     const { categoryName } = useParams();
     const { subCategoryName } = useParams();
 
-    //const category = categoryName ? productCategories.find((category) => category.name === categoryName) : null;
+    const category = categoryName ? productCategories.find((category) => category.name === categoryName) : null;
     //const subCategory = subCategoryName && category ? category.subcategories.find((subcategory) => subcategory.name === subCategoryName) : null
 
     const location = useLocation()
@@ -24,9 +23,19 @@ function ProductRow() {
 
     const [filterActive, setFilterActive] = useState(false)
     const [subCategoryFilterActive, setSubCategoryFilterActive] = useState(false)
-    const category = productCategories.find((category) => category.name === categoryName);
+    //const category = productCategories.find((category) => category.name === categoryName);
 
 
+
+
+    const [leftFilterParams, setLeftFilterParams] = useState([])
+    let filterParams = useSelector(state => state.leftFilterParams.leftFilterParams)
+    useEffect(() => {
+        setLeftFilterParams([...filterParams])
+    }, [filterParams])
+    useEffect(() => {
+        setLeftFilterParams([]);
+    }, [location.pathname])
 
     // məhsul filterlənməsi
     useEffect(() => {
@@ -92,10 +101,46 @@ function ProductRow() {
             }
         }
         filteredProducts.sort((a, b) => a.price - b.price);
-        
-        
+
+
+        if (leftFilterParams.length > 0) {
+            let rangeMin = leftFilterParams[0].rangeMin;
+            let rangeMax = leftFilterParams[0].rangeMax;
+            let selectedSubcategoryNames = leftFilterParams[0].selectedSubcategoryNames
+            let propertyFilter = leftFilterParams[0].propertyFilter
+            if (rangeMax > 0) {
+                filteredProducts = filteredProducts.filter(
+                    (product) => rangeMin <= product.price && product.price <= rangeMax
+                );
+            }
+            if (selectedSubcategoryNames.length > 0) {
+                const selectedSubcategoryProducts = [];
+                category.subcategories.forEach((subcategory) => {
+                    if (selectedSubcategoryNames.includes(subcategory.name)) {
+                        selectedSubcategoryProducts.push(...subcategory.products);
+                    }
+                });
+                filteredProducts = filteredProducts.filter((product) =>
+                    selectedSubcategoryProducts.includes(product)
+                );
+            }
+            if (propertyFilter !== 'no-filter') {
+                if (propertyFilter === 'filter-new') {
+                    filteredProducts = filteredProducts.filter((product) => product.isNew)
+                } else if (propertyFilter === 'filter-discount') {
+                    filteredProducts = filteredProducts.filter((product) => product.discount)
+                } else if (propertyFilter === 'filter-best-seller') {
+                    filteredProducts = filteredProducts.filter((product) => product.bestSeller)
+                }
+            }
+        }
+
+
+
+
+
         setProducts(filteredProducts);
-    }, [categoryName, subCategoryName, location.pathname])
+    }, [categoryName, subCategoryName, location.pathname, leftFilterParams,category])
 
 
 
@@ -143,54 +188,58 @@ function ProductRow() {
 
     return (
         <section className='products'>
-            {
-                products.length > 0 ? (
-                    <div className="container">
-                        <h1 className='section-title'>{productsTitle}</h1>
-                        <div className="row">
-                            {
-                                filterActive ? (
-                                    <div className='col-12 col-xl-4'>
-                                        <div className="inner">
-                                            <LeftFilter products={products} subCategoryFilterActive={subCategoryFilterActive} category={category} />
-                                        </div>
-                                    </div>
-                                ) : null
-                            }
-                            <div className={filterActive ? 'col-12 col-xl-8 p-0' : 'col-12 p-0'}>
+            <div className="container">
+                <h1 className='section-title'>{productsTitle}</h1>
+                <div className="row">
+                    {
+                        filterActive ? (
+                            <div className='col-12 col-xl-4'>
                                 <div className="inner">
-                                    <div className="row products-row">
-                                        {
-                                            filterActive ? (
-                                                <div className="col-12">
-                                                    <TopFilter changeProductsPerPage={changeProductsPerPage} changeSortProducts={changeSortProducts} />
-                                                </div>
-                                            ) : null
-                                        }
-                                        {currentProducts.map(product => (
-                                            <div key={product.id} className={filterActive ? 'col-12 col-md-6 col-lg-4' : 'col-12 col-md-6 col-lg-4 col-xxl-3'}>
-                                                <ProductCard product={product} />
-                                            </div>
-                                        ))}
-                                    </div>
-                                    {products.length > productsPerPage && <Pagination
-                                        totalProducts={products.length}
-                                        productsPerPage={productsPerPage}
-                                        currentPage={currentPage}
-                                        onPageChange={handlePageChange}
-                                        prev={handlePrevPage}
-                                        next={handleNextPage}
-                                    />}
+                                    <LeftFilter products={products} subCategoryFilterActive={subCategoryFilterActive} category={category} />
                                 </div>
                             </div>
+                        ) : null
+                    }
+                    <div className={filterActive ? 'col-12 col-xl-8 p-0' : 'col-12 p-0'}>
+                        <div className="inner">
+                            <div className="row products-row">
+                                {
+                                    filterActive ? (
+                                        <div className="col-12">
+                                            <TopFilter changeProductsPerPage={changeProductsPerPage} changeSortProducts={changeSortProducts} />
+                                        </div>
+                                    ) : null
+                                }
+                                {
+                                    products.length > 0 ? (
+                                        <>
+                                            {
+                                                currentProducts.map(product => (
+                                                    <div key={product.id} className={filterActive ? 'col-12 col-md-6 col-lg-4' : 'col-12 col-md-6 col-lg-4 col-xxl-3'}>
+                                                        <ProductCard product={product} />
+                                                    </div>
+                                                ))
+                                            }
+                                        </>
+                                    ) : (
+                                        <div className="container">
+                                            <h1 className="section-title">Məhsul Tapılmadı</h1>
+                                        </div>
+                                    )
+                                }
+                            </div>
+                            {products.length > productsPerPage && <Pagination
+                                totalProducts={products.length}
+                                productsPerPage={productsPerPage}
+                                currentPage={currentPage}
+                                onPageChange={handlePageChange}
+                                prev={handlePrevPage}
+                                next={handleNextPage}
+                            />}
                         </div>
                     </div>
-                ) : (
-                    <div className="container">
-                        <h1 className="section-title">Məhsul Tapılmadı</h1>
-                    </div>
-                )
-            }
+                </div>
+            </div>
         </section>
     )
 }

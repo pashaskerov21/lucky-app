@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import manatIcon from '../../../image/icon/manat.svg'
 import { useDispatch } from 'react-redux'
-import { sendFilteredProducts } from '../../../redux/actions/FilteredProductAction'
+import { sendFilterParams } from '../../../redux/actions/LeftFilterAction'
+import { useLocation } from 'react-router-dom'
 
-function LeftFilter({ subCategoryFilterActive, category, products }) {
+function LeftFilter({ subCategoryFilterActive, category, }) {
     const [filterActive, setFilterActive] = useState(false)
     const toggleFilter = () => {
         setFilterActive(!filterActive)
@@ -31,66 +32,44 @@ function LeftFilter({ subCategoryFilterActive, category, products }) {
         }
     }
     const handlePropertyCheckboxChange = (e) => {
-        if(e.target.checked){
+        if (e.target.checked) {
             setPropertyFilter(e.target.value)
-        }else{
+        } else {
             setPropertyFilter('no-filter')
         }
     }
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const location = useLocation();
+    
+
+    useEffect(() => {
+        // Sayfa yüklendiğinde veya LeftFilterParams güncellendiğinde filtreleri sıfırla
+        resetFilters();
+    }, [location.pathname]);
+
+    const resetFilters = () => {
+        setRangeMin(0);
+        setRangeMax(2000);
+        setSelectedSubCategoryNames([]);
+        setPropertyFilter('no-filter');
+    };
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setFilteredProducts(products)
-        applyFilters();
-        setFilteredProducts(applyFilters())
-        dispatch(sendFilteredProducts(filteredProducts))
+        let filterParams = {
+            rangeMin,
+            rangeMax,
+            selectedSubcategoryNames,
+            propertyFilter,
+        }
+        dispatch(sendFilterParams(filterParams))
     }
+
     
 
-    const applyFilters = () => {
-        let filteredProducts = products;
 
-        if (rangeMax > 0) {
-            filteredProducts = filteredProducts.filter(
-                (product) => rangeMin <= product.price && product.price <= rangeMax
-            );
-        }
-        if (selectedSubcategoryNames.length > 0) {
-            const selectedSubcategoryProducts = [];
-            category.subcategories.forEach((subcategory) => {
-                if (selectedSubcategoryNames.includes(subcategory.name)) {
-                    selectedSubcategoryProducts.push(...subcategory.products);
-                }
-            });
-            filteredProducts = filteredProducts.filter((product) =>
-                selectedSubcategoryProducts.includes(product)
-            );
-        }
-        if(propertyFilter !== 'no-filter'){
-            if(propertyFilter === 'filter-new'){
-                filteredProducts = filteredProducts.filter((product) => product.isNew)
-            }else if(propertyFilter === 'filter-discount'){
-                filteredProducts = filteredProducts.filter((product) => product.discount)
-            }else if(propertyFilter === 'filter-best-seller'){
-                filteredProducts = filteredProducts.filter((product) => product.bestSeller)
-            }
-        }
-        return filteredProducts;
-    }
-    const [filteredProducts, setFilteredProducts] = useState(products);
-
-    // useEffect(() => {
-    //     applyFilters();
-    // }, [products]);
-
-    // useEffect(() => {
-    //     dispatch(sendFilteredProducts(filteredProducts))
-    // },[filteredProducts])
-
-
-    //console.log(filteredProducts)
 
     return (
         <>
