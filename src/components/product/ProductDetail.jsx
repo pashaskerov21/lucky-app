@@ -34,7 +34,7 @@ function ProductDetail() {
         }
         if (product.basketStatus === true) {
             let productInBasket = basketProducts.find((p) => p.id === product.id)
-            productInBasket.amount = amount;
+            productInBasket.amount = productInBasket.amount + amount;
             toast.success('Məhsul səbətə əlavə olundu!');
         } else {
             product.amount = amount

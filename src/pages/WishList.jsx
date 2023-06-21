@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import ProductCard from '../components/product/ProductCard';
 
 function Wishlist() {
-  const wishlistProducts = useSelector(state => state.wishlistProducts);
+  const wishlistProducts = useSelector(state => state.productState.wishlistProducts);
   return (
     <Layout>
       <section className='wishlist'>
