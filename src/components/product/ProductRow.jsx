@@ -185,6 +185,9 @@ function ProductRow() {
             window.scrollTo(0, 0);
         }
     }
+    useEffect(() => {
+        setCurrentPage(1)
+    }, [location.pathname])
 
     return (
         <section className='products'>
