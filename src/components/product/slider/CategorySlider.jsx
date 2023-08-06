@@ -1,16 +1,24 @@
-import React from 'react'
-import { productCategories } from '../../../data/ProductData'
+import React, { useContext, useEffect, useState } from 'react'
 import Slider from 'react-slick';
 import ProductCard from '../ProductCard';
+import { MainContext } from '../../../context/MainContextProvider';
 
 function CategorySlider({ categoryName }) {
 
-    const category = productCategories.find((category) => category.name === categoryName)
-    const products = [];
-    category.subcategories.forEach(subcategory => {
-        let filteredProducts = subcategory.products.filter(product => product.bestSeller);
-        products.push(...filteredProducts);
-    })
+    const { categoryArray, productArray } = useContext(MainContext);
+    const category = categoryArray.find((category) => category.name === categoryName)
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        if (category) {
+            let fileredProducts = category ? productArray.filter((product) => product.categoryID === category.id) : [];
+            if (fileredProducts.length > 0) {
+                fileredProducts = fileredProducts.length > 0 && fileredProducts.filter((product) => product.bestSeller);
+                setProducts([...fileredProducts]);
+            }
+        }
+
+    }, [category, productArray])
     var settings = {
         dots: true,
         appendDots: (dots) => (
@@ -53,20 +61,26 @@ function CategorySlider({ categoryName }) {
         ]
     };
     return (
-        <section className="category-slider section-gray">
-            <div className="container">
-                <h2 className="section-title">{category.name}</h2>
-                <Slider {...settings}>
-                    {
-                        products.map(product => (
-                            <div key={product.id} className='d-flex justify-content-center'>
-                                <ProductCard product={product} />
-                            </div>
-                        ))
-                    }
-                </Slider>
-            </div>
-        </section>
+        <>
+            {
+                products.length > 0 ? (
+                    <section className="category-slider section-gray">
+                        <div className="container">
+                            <h2 className="section-title">{category.name}</h2>
+                            <Slider {...settings}>
+                                {
+                                    products.map(product => (
+                                        <div key={product.id} className='d-flex justify-content-center'>
+                                            <ProductCard product={product} />
+                                        </div>
+                                    ))
+                                }
+                            </Slider>
+                        </div>
+                    </section>
+                ) : null
+            }
+        </>
     )
 }
 

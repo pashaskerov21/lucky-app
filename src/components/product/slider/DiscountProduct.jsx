@@ -1,16 +1,12 @@
-import React from 'react'
-import { productCategories } from '../../../data/ProductData';
+import React, { useContext } from 'react'
 import Slider from 'react-slick';
 import ProductCard from '../ProductCard';
+import { MainContext } from '../../../context/MainContextProvider';
 
 function DiscountProduct() {
-    let discountProducts = [];
-    productCategories.forEach(category => {
-        category.subcategories.forEach(subcategory => {
-            let filteredProducts = subcategory.products.filter(product => product.discount)
-            discountProducts.push(...filteredProducts)
-        })
-    })
+    const { productArray } = useContext(MainContext);
+    let discountProducts = productArray.filter((product) => product.discount)
+    
     var settings = {
         dots: true,
         appendDots: (dots) => (

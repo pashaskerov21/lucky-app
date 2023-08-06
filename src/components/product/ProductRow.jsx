@@ -1,33 +1,30 @@
 
-import React, { useEffect, useState } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
-import { productCategories } from '../../data/ProductData';
+import React, { useContext, useEffect, useState } from 'react'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import ProductCard from './ProductCard';
 import Pagination from './Pagination';
 import TopFilter from './filter/TopFilter';
 import LeftFilter from './filter/LeftFilter';
 import { useSelector } from 'react-redux';
+import { MainContext } from '../../context/MainContextProvider';
 
 function ProductRow() {
 
-    const { categoryName } = useParams();
-    const { subCategoryName } = useParams();
-
-    const category = categoryName ? productCategories.find((category) => category.name === categoryName) : null;
-    //const subCategory = subCategoryName && category ? category.subcategories.find((subcategory) => subcategory.name === subCategoryName) : null
+    const { categoryName, subCategoryName } = useParams();
+    const { categoryArray, subcategoryArray, productArray } = useContext(MainContext);
+    const category = categoryName && categoryArray.find((category) => category.name === categoryName);
+    const subCategory = subCategoryName && subcategoryArray.find((subcategory) => subcategory.name === subCategoryName);
 
     const location = useLocation()
+    const navigate = useNavigate();
 
     const [products, setProducts] = useState([]);
     const [productsTitle, setProductsTitle] = useState('');
 
     const [filterActive, setFilterActive] = useState(false)
     const [subCategoryFilterActive, setSubCategoryFilterActive] = useState(false)
-    //const category = productCategories.find((category) => category.name === categoryName);
 
-
-
-
+    const [priceSortValue, setPriceSortValue] = useState('cheapToExp')
     const [leftFilterParams, setLeftFilterParams] = useState([])
     let filterParams = useSelector(state => state.leftFilterParams.leftFilterParams)
     useEffect(() => {
@@ -40,89 +37,55 @@ function ProductRow() {
     // məhsul filterlənməsi
     useEffect(() => {
         let filteredProducts = [];
-
+        const allProducts = productArray.slice();
+        // routename uzre filterlenme
         if (location.pathname === '/products/' || location.pathname === '/products') {
-            const allProducts = [];
-
-            setFilterActive(false)
-            productCategories.forEach((category) => {
-                category.subcategories.forEach((subcategory) => {
-                    allProducts.push(...subcategory.products);
-                });
-            });
-            filteredProducts.push(...allProducts)
-            setProductsTitle('Məhsullar')
-
+            setFilterActive(false);
+            setProductsTitle('Məhsullar');
+            filteredProducts.push(...allProducts);
         } else if (location.pathname === '/products/new') {
-            setFilterActive(false)
-            productCategories.forEach((category) => {
-                category.subcategories.forEach((subcategory) => {
-                    const newProducts = subcategory.products.filter((product) => product.isNew);
-                    filteredProducts.push(...newProducts);
-                });
-            });
+            setFilterActive(false);
             setProductsTitle('Yeni Məhsullar');
+            filteredProducts = allProducts.filter((product) => product.isNew);
         } else if (location.pathname === '/products/discounts') {
-            setFilterActive(false)
-            productCategories.forEach((category) => {
-                category.subcategories.forEach((subcategory) => {
-                    const discountedProducts = subcategory.products.filter((product) => product.discount);
-                    filteredProducts.push(...discountedProducts);
-                });
-            });
+            setFilterActive(false);
             setProductsTitle('Endirimli Məhsullar');
+            filteredProducts = allProducts.filter((product) => product.discount);
         } else if (location.pathname === '/products/best-sellers') {
-            setFilterActive(false)
-            productCategories.forEach((category) => {
-                category.subcategories.forEach((subcategory) => {
-                    const bestSellingProducts = subcategory.products.filter((product) => product.bestSeller);
-                    filteredProducts.push(...bestSellingProducts);
-                });
-            });
+            setFilterActive(false);
             setProductsTitle('Ən Çox Satılan Məhsullar');
-        } else {
-            const category = productCategories.find((category) => category.name === categoryName);
-            const subCategory = category?.subcategories.find((subcategory) => subcategory.name === subCategoryName);
-
+            filteredProducts = allProducts.filter((product) => product.bestSeller);
+        } else if (subCategory) {
             setFilterActive(true);
-
-            if (subCategoryName && subCategory && category) {
-                filteredProducts = subCategory.products;
-                setProductsTitle(subCategory.name);
-                setSubCategoryFilterActive(false);
-            } else {
-                if (category) {
-                    category?.subcategories.forEach((subCategory) => {
-                        filteredProducts.push(...subCategory.products);
-                    });
-                    setProductsTitle(category.name);
-                    setSubCategoryFilterActive(true)
-                }
-            }
+            setProductsTitle(subCategory?.name);
+            setSubCategoryFilterActive(false);
+            filteredProducts = allProducts.filter((product) => product.subcategoryID === subCategory.id);
+        } else if (!subCategory && category) {
+            setFilterActive(true);
+            setProductsTitle(category?.name);
+            setSubCategoryFilterActive(true);
+            filteredProducts = allProducts.filter((product) => product.categoryID === category.id);
+        }else{
+            navigate('/404')
         }
-        filteredProducts.sort((a, b) => a.price - b.price);
+        // price sort
+        if (priceSortValue === 'cheapToExp') {
+            filteredProducts.sort((a, b) => a.price - b.price);
+        } else {
+            filteredProducts.sort((a, b) => b.price - a.price);
+        }
 
-
+        // left filters
         if (leftFilterParams.length > 0) {
             let rangeMin = leftFilterParams[0].rangeMin;
             let rangeMax = leftFilterParams[0].rangeMax;
-            let selectedSubcategoryNames = leftFilterParams[0].selectedSubcategoryNames
-            let propertyFilter = leftFilterParams[0].propertyFilter
+            let selectedSubcategoryIDs = leftFilterParams[0].selectedSubcategoryIDs;
+            let propertyFilter = leftFilterParams[0].propertyFilter;
             if (rangeMax > 0) {
-                filteredProducts = filteredProducts.filter(
-                    (product) => rangeMin <= product.price && product.price <= rangeMax
-                );
+                filteredProducts = filteredProducts.filter((product) => rangeMin <= product.price && product.price <= rangeMax);
             }
-            if (selectedSubcategoryNames.length > 0) {
-                const selectedSubcategoryProducts = [];
-                category.subcategories.forEach((subcategory) => {
-                    if (selectedSubcategoryNames.includes(subcategory.name)) {
-                        selectedSubcategoryProducts.push(...subcategory.products);
-                    }
-                });
-                filteredProducts = filteredProducts.filter((product) =>
-                    selectedSubcategoryProducts.includes(product)
-                );
+            if (selectedSubcategoryIDs.length > 0) {
+                filteredProducts = filteredProducts.filter((product) => selectedSubcategoryIDs.includes(product.subcategoryID));
             }
             if (propertyFilter !== 'no-filter') {
                 if (propertyFilter === 'filter-new') {
@@ -133,28 +96,12 @@ function ProductRow() {
                     filteredProducts = filteredProducts.filter((product) => product.bestSeller)
                 }
             }
+
         }
 
+        setProducts([...filteredProducts])
+    }, [location, productArray, category, subCategory, priceSortValue, leftFilterParams, navigate])
 
-
-
-
-        setProducts(filteredProducts);
-    }, [categoryName, subCategoryName, location.pathname, leftFilterParams,category])
-
-
-
-
-    // mehsullarin qiymete gore siralanmasi
-    const changeSortProducts = (value) => {
-        let sortedProducts;
-        if (value === 'expToCheap') {
-            sortedProducts = [...products].sort((a, b) => b.price - a.price)
-        } else {
-            sortedProducts = [...products].sort((a, b) => a.price - b.price)
-        }
-        setProducts(sortedProducts)
-    }
 
     // pagination
     const [currentPage, setCurrentPage] = useState(1);
@@ -187,7 +134,7 @@ function ProductRow() {
     }
     useEffect(() => {
         setCurrentPage(1)
-    }, [location.pathname])
+    }, [location.pathname, productsPerPage])
 
     return (
         <section className='products'>
@@ -198,7 +145,7 @@ function ProductRow() {
                         filterActive ? (
                             <div className='col-12 col-xl-4'>
                                 <div className="inner">
-                                    <LeftFilter products={products} subCategoryFilterActive={subCategoryFilterActive} category={category} />
+                                    <LeftFilter products={products} category={category} subCategoryFilterActive={subCategoryFilterActive} />
                                 </div>
                             </div>
                         ) : null
@@ -209,7 +156,7 @@ function ProductRow() {
                                 {
                                     filterActive ? (
                                         <div className="col-12">
-                                            <TopFilter changeProductsPerPage={changeProductsPerPage} changeSortProducts={changeSortProducts} />
+                                            <TopFilter changeProductsPerPage={changeProductsPerPage} setPriceSortValue={setPriceSortValue} />
                                         </div>
                                     ) : null
                                 }

@@ -18,7 +18,7 @@ function BottomNav({ menu,toggleMenu, categoryMenu, toggleCategoryMenu, openCate
     <nav className={fixed ? 'bottom-nav fixed-top' : 'bottom-nav'}>
       <div className={menu ? 'nav-links d-xl-flex' : 'nav-links d-none d-xl-flex'}>
         <div className='search-wrapper d-xl-none'>
-          <Search />
+          <Search toggleMenu={toggleMenu} />
         </div>
         <Link onClick={() => toggleMenu()} to='/about'>Haqqımızda</Link>
         <Link onClick={() => toggleMenu()} to='/products/new'>Yeni</Link>
@@ -34,7 +34,7 @@ function BottomNav({ menu,toggleMenu, categoryMenu, toggleCategoryMenu, openCate
         <Link onClick={() => toggleMenu()} to='/contact'>Əlaqə</Link>
       </div>
       <div className={fixed ? 'fixnav-items d-none d-xl-flex' : 'fixnav-items d-none d-xl-none'}>
-        <Search/>
+        <Search toggleMenu={toggleMenu}/>
         <GeneralIcons/>
       </div>
       <div className="categories">

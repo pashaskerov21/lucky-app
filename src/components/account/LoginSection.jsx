@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import logo from '../../image/logo/logo-header.svg'
 
 function LoginSection() {
+  const handleLoginSubmit = (e) =>{
+    e.preventDefault();
+  }
   return (
     <section className='account'>
       <div className="row">
@@ -13,7 +16,7 @@ function LoginSection() {
           </div>
         </div>
         <div className="col-12 col-lg-9 col-xxl-8 account-col-right">
-          <form action='#' className="form-general">
+          <form onSubmit={handleLoginSubmit} className="form-general">
             <h2 className="section-title">Daxil Ol</h2>
             <div className="form-floating">
               <input type="email" className="form-control" id="email" placeholder="email" />

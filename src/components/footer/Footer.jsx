@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import footerLogo from '../../image/logo/logo-footer.svg'
 import { Link } from 'react-router-dom'
-import {productCategories} from '../../data/ProductData'
+import { MainContext } from '../../context/MainContextProvider';
 
 function Footer() {
+  const { categoryArray } = useContext(MainContext);
   return (
     <footer>
         <div className="container">
@@ -23,7 +24,7 @@ function Footer() {
               <div className="footer-links">
                 <h4 className="title">Kategoriyalar</h4>
                 {
-                  productCategories.map(category => (
+                  categoryArray.map(category => (
                     <Link key={category.id} to={`/products/${encodeURIComponent(category.name)}`}>{category.name}</Link>
                   ))
                 }

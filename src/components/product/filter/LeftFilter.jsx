@@ -1,10 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import manatIcon from '../../../image/icon/manat.svg'
 import { useDispatch } from 'react-redux'
 import { sendFilterParams } from '../../../redux/actions/LeftFilterAction'
 import { useLocation } from 'react-router-dom'
+import { MainContext } from '../../../context/MainContextProvider'
 
 function LeftFilter({ subCategoryFilterActive, category, }) {
+    const {subcategoryArray} = useContext(MainContext);
+    const [subcategories, setSubCategories] = useState([]);
+    useEffect(() =>{
+        if(category){
+            let filteredSubcategories = subcategoryArray.filter((sb) => sb.categoryID === category.id);
+            setSubCategories([...filteredSubcategories]);
+        }
+    },[category, subcategoryArray])
+
     const [filterActive, setFilterActive] = useState(false)
     const toggleFilter = () => {
         setFilterActive(!filterActive)
@@ -15,19 +25,20 @@ function LeftFilter({ subCategoryFilterActive, category, }) {
     let [rangeMax, setRangeMax] = useState(2000)
 
 
-    const [selectedSubcategoryNames, setSelectedSubCategoryNames] = useState([]);
+    const [selectedSubcategoryIDs, setSelectedSubcategoryIDs] = useState([]);
     const [propertyFilter, setPropertyFilter] = useState('no-filter');
 
-    const handleSubCategpryCheckboxChange = (e) => {
-        const subCategoryName = e.target.value;
+    const handleSubCategoryCheckboxChange = (e) => {
+        let subCategoryID = e.target.value;
+        subCategoryID = parseInt(subCategoryID);
         if (e.target.checked) {
-            setSelectedSubCategoryNames((prevSelectedSubcategoryNames) => [
-                ...prevSelectedSubcategoryNames,
-                subCategoryName
+            setSelectedSubcategoryIDs((prevSelectedSubcategoryIDs) => [
+                ...prevSelectedSubcategoryIDs,
+                subCategoryID
             ])
         } else {
-            setSelectedSubCategoryNames((prevSelectedSubcategoryNames) =>
-                prevSelectedSubcategoryNames.filter((name) => name !== subCategoryName)
+            setSelectedSubcategoryIDs((prevSelectedSubcategoryIDs) =>
+                prevSelectedSubcategoryIDs.filter((name) => name !== subCategoryID)
             );
         }
     }
@@ -44,14 +55,13 @@ function LeftFilter({ subCategoryFilterActive, category, }) {
     
 
     useEffect(() => {
-        // Sayfa yüklendiğinde veya LeftFilterParams güncellendiğinde filtreleri sıfırla
         resetFilters();
     }, [location.pathname]);
 
     const resetFilters = () => {
         setRangeMin(0);
         setRangeMax(2000);
-        setSelectedSubCategoryNames([]);
+        setSelectedSubcategoryIDs([]);
         setPropertyFilter('no-filter');
     };
     
@@ -61,7 +71,7 @@ function LeftFilter({ subCategoryFilterActive, category, }) {
         let filterParams = {
             rangeMin,
             rangeMax,
-            selectedSubcategoryNames,
+            selectedSubcategoryIDs,
             propertyFilter,
         }
         dispatch(sendFilterParams(filterParams))
@@ -98,13 +108,13 @@ function LeftFilter({ subCategoryFilterActive, category, }) {
                     </div>
                 </div>
                 {
-                    subCategoryFilterActive ? (
+                    subCategoryFilterActive && subcategories.length > 0 ? (
                         <div className="subcategory-filter">
                             <h4 className="section-title">Alt kategoriya</h4>
                             {
-                                category?.subcategories.map(subcategory => (
+                                subcategories.map(subcategory => (
                                     <div key={subcategory.id} className="form-check">
-                                        <input type="checkbox" className='form-check-input' id={subcategory.id} value={subcategory.name} onChange={handleSubCategpryCheckboxChange} />
+                                        <input type="checkbox" className='form-check-input' id={subcategory.id} value={subcategory.id} onChange={handleSubCategoryCheckboxChange} />
                                         <label className='form-check-label' htmlFor={subcategory.id}>{subcategory.name}</label>
                                     </div>
                                 ))

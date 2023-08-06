@@ -1,33 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import heartIconOutline from '../../image/icon/heart-outline.svg'
 import heartIconFilled from '../../image/icon/heart-filled.svg'
 import { Link } from 'react-router-dom';
-import { productCategories } from '../../data/ProductData';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { addToBasket, addToWishlist, removeFromWishlist } from '../../redux/actions/ProductAction';
+import { MainContext } from '../../context/MainContextProvider';
 
 function ProductCard({ product }) {
 
-
-  function findCategoryAndSubCategory(productId) {
-    for (const category of productCategories) {
-      for (const subCategory of category.subcategories) {
-        for (const product of subCategory.products) {
-          if (product.id === productId) {
-            return {
-              category: category,
-              subCategory: subCategory,
-            };
-          }
-        }
-      }
-    }
-
-    return null;
-  }
-
-  const { category, subCategory } = findCategoryAndSubCategory(product.id);
+  const { categoryArray, subcategoryArray } = useContext(MainContext);
+  const category = categoryArray.find((c) => c.id === product.categoryID);
+  const subcategory = subcategoryArray.find((c) => c.id === product.subcategoryID);
 
 
   const wishlistProducts = useSelector(state => state.productState.wishlistProducts);
@@ -44,7 +28,12 @@ function ProductCard({ product }) {
   };
   const basketHandleClick = () => {
     if (!isAlreadyInBasket) {
-      dispatch(addToBasket(product));
+      let basketProduct = {
+        ...product,
+        basketStatus: true,
+        basketAmount: 1,
+      }
+      dispatch(addToBasket(basketProduct));
       toast.success('Məhsul səbətə əlavə olundu');
       setIsAlreadyInBasket(true)
     }
@@ -61,7 +50,7 @@ function ProductCard({ product }) {
           <img src={isWishlist ? heartIconFilled : heartIconOutline} alt="heart-icon" />
         </button>
       </div>
-      <Link to={`/products/${encodeURIComponent(category.name)}/${encodeURIComponent(subCategory.name)}/${encodeURIComponent(product.name)}`} className='product-image'>
+      <Link to={`/products/${encodeURIComponent(category?.name)}/${encodeURIComponent(subcategory?.name)}/${encodeURIComponent(product?.name)}`} className='product-image'>
         <img src={product.img} alt="product" />
       </Link>
       <div className="info">

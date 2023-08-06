@@ -15,7 +15,7 @@ function MiddleNav({menu, toggleMenu}) {
                         <img src={headerLogo} alt="logo" />
                     </Link>
                     <div className='search-wrapper d-none d-xl-flex'>
-                        <Search />
+                        <Search toggleMenu={toggleMenu} />
                     </div>
                     <div className='middle-bottom'>
                         <div className={menu ? 'menu-button active d-xl-none' : 'menu-button d-xl-none'} onClick={() => toggleMenu()}>

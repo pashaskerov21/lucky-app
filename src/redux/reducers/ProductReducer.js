@@ -39,7 +39,7 @@ const ProductReducer = (state = initialState, action) => {
                     if (product.id === action.payload) {
                         return {
                             ...product,
-                            amount: product.amount + 1
+                            basketAmount: product.basketAmount + 1
                         };
                     }
                     return product;
@@ -53,7 +53,7 @@ const ProductReducer = (state = initialState, action) => {
                     if (product.id === action.payload) {
                         return {
                             ...product,
-                            amount: product.amount > 1 ? product.amount - 1 : 1
+                            basketAmount: product.basketAmount > 1 ? product.basketAmount - 1 : 1
                         };
                     }
                     return product;

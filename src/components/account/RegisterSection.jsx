@@ -4,6 +4,9 @@ import logo from '../../image/logo/logo-header.svg'
 
 
 function RegisterSection() {
+  const handleRegisterSubmit = (e) =>{
+    e.preventDefault();
+  }
   return (
     <section className='account'>
       <div className="row">
@@ -14,7 +17,7 @@ function RegisterSection() {
           </div>
         </div>
         <div className="col-12 col-lg-9 col-xxl-8 account-col-right">
-          <form action='#' className="form-general register">
+          <form onSubmit={handleRegisterSubmit} className="form-general register">
             <h2 className="section-title">Qeydiyyat</h2>
             <div className="row">
               <div className="col-12 col-xl-6">

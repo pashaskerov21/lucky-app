@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TopFilter({changeProductsPerPage,changeSortProducts}) {
+function TopFilter({changeProductsPerPage,setPriceSortValue}) {
   return (
     <div className='product-top-filter'>
       <div className='filter-item'>
@@ -14,7 +14,7 @@ function TopFilter({changeProductsPerPage,changeSortProducts}) {
       </div>
       <div className='filter-item'>
         <span className='label'>Qiymətə görə</span>
-        <select defaultValue='choose' onChange={(e) => changeSortProducts(e.target.value)}>
+        <select defaultValue='choose' onChange={(e) => setPriceSortValue(e.target.value)}>
             <option value='choose' disabled >Seç</option>
             <option value="cheapToExp">Ucuzdan Bahaya</option>
             <option value="expToCheap">Bahadan Ucuza</option>

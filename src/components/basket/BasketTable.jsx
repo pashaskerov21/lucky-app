@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { updateTotal } from '../../redux/actions/BasketTotalAction';
 import { decreaseProductAmount, increaseProductAmount, removeFromBasket } from '../../redux/actions/ProductAction';
-import { productCategories } from '../../data/ProductData';
+import { MainContext } from '../../context/MainContextProvider';
 
 
 function BasketTable() {
@@ -22,7 +22,7 @@ function BasketTable() {
         dispatch(increaseProductAmount(productId))
     }
     useEffect(() => {
-        const newTotal = basketProducts.reduce((acc, product) => acc + product.price * (product.amount ? product.amount : 1), 0);
+        const newTotal = basketProducts.reduce((acc, product) => acc + product.price * (product.basketAmount ? product.basketAmount : 1), 0);
         dispatch(updateTotal(newTotal));
     }, [basketProducts, dispatch]);
 
@@ -55,17 +55,17 @@ function BasketTable() {
     }
 
 
-    const [imagePath, setImagePath] = useState('/basket')
+    const [imagePath, setImagePath] = useState('/basket');
+    const { categoryArray, subcategoryArray, productArray } = useContext(MainContext);
 
-    function findProductParams(productId) {
-        for (const category of productCategories) {
-            for (const subCategory of category.subcategories) {
-                for (const product of subCategory.products) {
-                    if (product.id === productId) {
-                        setImagePath(`/products/${encodeURIComponent(category.name)}/${encodeURIComponent(subCategory.name)}/${encodeURIComponent(product.name)}`)
-                    }
-                }
-            }
+    function findProductParams(categoryID, subcategoryID, productID) {
+        let category = categoryArray.find((c) => c.id === categoryID);
+        let subcategory = subcategoryArray.find((c) => c.id === subcategoryID);
+        let product = productArray.find((p) => p.id === productID);
+        if(category && subcategory && product){
+            setImagePath(`/products/${encodeURIComponent(category.name)}/${encodeURIComponent(subcategory.name)}/${encodeURIComponent(product.name)}`)
+        }else{
+            setImagePath('/404');
         }
     }
 
@@ -96,7 +96,7 @@ function BasketTable() {
                                         basketProducts.map(product => (
                                             <tr key={product.id}>
                                                 <td>
-                                                    <Link to={imagePath} onMouseDown={() => findProductParams(product.id)}  className='product-image'>
+                                                    <Link to={imagePath} onMouseDown={() => findProductParams(product.categoryID, product.subcategoryID, product.id)}  className='product-image'>
                                                         <img src={product.img} alt="product" />
                                                     </Link>
                                                     
@@ -114,13 +114,13 @@ function BasketTable() {
                                                 <td>
                                                     <div className='amount'>
                                                         <button onClick={() => handleDecreaseButton(product.id)}>-</button>
-                                                        <span>{product.amount ? product.amount : 1}</span>
+                                                        <span>{product.basketAmount}</span>
                                                         <button onClick={() => handleIncreaseButton(product.id)}>+</button>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div className='product-total'>
-                                                        <span>{product.amount ? (product.amount * product.price).toFixed(2) : product.price.toFixed(2)} AZN</span>
+                                                        <span>{(product.basketAmount * product.price).toFixed(2)} AZN</span>
                                                     </div>
                                                 </td>
                                                 <td>
